@@ -3,6 +3,7 @@ import os
 import shutil
 
 from configs import repository_name
+from cleaner import create_or_replace_dir
 
 # public, Variable Function
 def remove_junk(javas):
@@ -55,5 +56,11 @@ def sort_javas(javas):
 
 # public
 def copy_files(files, new_dir):
+    create_dir_if_not_exists(new_dir)
     for dir, file in files:
         shutil.copyfile('%s/%s' % (dir, file), '%s/%s' % (new_dir, file))
+
+# public
+def create_dir_if_not_exists(dir):
+    if not os.path.exists(dir):
+        os.makedirs(dir)

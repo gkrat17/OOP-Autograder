@@ -15,6 +15,12 @@ def clean(clean_classes = True):
         os.remove(jacoco)
 
 def create_or_replace_dir(dir):
+
+    def on_rm_error(func, path, exc_info):
+        os.chmod(path, stat.S_IWRITE)
+        os.unlink(path)
+
     if os.path.exists(dir):
-        shutil.rmtree(dir)
-    os.mkdir(dir)
+        shutil.rmtree(dir, onerror = on_rm_error)
+
+    os.makedirs(dir)

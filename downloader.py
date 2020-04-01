@@ -1,5 +1,6 @@
 
 from configs import repository_name
+from cleaner import create_or_replace_dir
 
 import os
 import subprocess
@@ -13,13 +14,13 @@ def download():
     errors = []
 
     for student in students:
-        dir_path = 'Downloads/' + student
-        # Make directory
-        os.mkdir(dir_path)
+        create_or_replace_dir('Downloads/' + student)
+
         # Download repository
         command = 'git clone https://github.com/%s/%s Downloads/%s' % (student, repository_name, student)
         process = subprocess.Popen(command, shell = True, stdout = subprocess.PIPE)
         process.wait()
+
         # Save error if exists
         error = process.returncode
         if error != 0:
