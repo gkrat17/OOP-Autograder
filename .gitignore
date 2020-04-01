@@ -1,4 +1,7 @@
+/__pycache__
 /Files
 /Downloads
 /Results
 /StudentHomework
+/Tests
+jacoco.exec
