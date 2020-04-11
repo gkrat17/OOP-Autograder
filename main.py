@@ -85,7 +85,7 @@ def main():
 
         # t_covered_ins - tests covered instructions
         # t_covered_brs - tests covered branches
-        methods_passed = 0.0 if testing_result in [-1, -3] else get_methods_passed(student, report_name)
+        methods_passed = 0.0 if testing_result in [-2, -3] else get_methods_passed(student, report_name)
 
         # Save results
         write_student_results(student, st_covered_ins, st_covered_brs, methods_passed)
