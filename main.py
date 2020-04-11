@@ -76,8 +76,8 @@ def main():
         report_name = 'tests_result'
         testing_result = run_tests(student, report_name)
 
-        if testing_result < 0:
-            print('%s: Some RunTime error occurred while executing Tests: %d' % (student, testing_result))
+        if testing_result < -1:
+            print('%s: Some RunTime error occurred in Jacoco while executing Tests: %d' % (student, testing_result))
             # write_student_results(student, st_covered_ins, st_covered_brs, 0.0)
             # clean()
             # continue # testing running or report running RunTime error is stored in errors.txt
@@ -85,7 +85,7 @@ def main():
 
         # t_covered_ins - tests covered instructions
         # t_covered_brs - tests covered branches
-        methods_passed = 0.0 if testing_result in [-2, -3] else get_methods_passed(student, report_name)
+        methods_passed = 0.0 if testing_result < -1 else get_methods_passed(student, report_name)
 
         # Save results
         write_student_results(student, st_covered_ins, st_covered_brs, methods_passed)
