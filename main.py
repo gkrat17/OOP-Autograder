@@ -29,6 +29,9 @@ def main():
         remove_junk(student_classes)
         remove_junk(student_tests)
 
+        # FIXME: Temporary fix for Homework 2
+        student_tests.append(('Temp', 'TPointTest.java'))
+
         # Copy 'student_classes' and 'student_tests' in appropriate directories
         copy_files(student_classes, 'StudentHomework/SourceFiles/Classes')
         copy_files(student_tests, 'StudentHomework/SourceFiles/Tests')

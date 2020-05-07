@@ -11,7 +11,7 @@ def remove_junk(javas):
     for i in reversed(range(len(javas))):
         java = javas[i]
 
-        if any(x in java[1] for x in ['Shape', 'Point']):
+        if not any(x in java[1] for x in ['Board', 'Piece', 'TPoint']):
             javas.pop(i)
 
 # public
