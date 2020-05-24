@@ -10,7 +10,7 @@ def run_process(command, student, error_type):
 
     if process.returncode != 0:
         errors_file = open('Files/errors.txt', 'a+')
-        errors_file.write('%s %s:\nstderr:\n%s\nstdout:\n%s\n\n' % (student, error_type, err.decode('utf-8'), out.decode('utf-8')))
+        errors_file.write('%s %s:\nstderr:\n%s\nstdout:\n%s\n\n' % (student, error_type, str(err), str(out)))
         errors_file.close()
         return False # failed
 

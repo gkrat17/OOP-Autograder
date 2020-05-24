@@ -48,7 +48,7 @@ def sort_javas(javas):
     classes, tests = [], []
 
     for java in javas:
-        if java[1].endswith('Test.java'):
+        if 'Test' in java[1]:
             tests.append(java)
         else: classes.append(java)
 
